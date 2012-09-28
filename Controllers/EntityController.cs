@@ -1,12 +1,14 @@
 ﻿namespace AngeronaSignum.WebApi.Controllers
 {
-    using AngeronaSignum.WebApi.Models;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web;
     using System.Web.Http;
+
     using Dapper;
+    using AngeronaSignum.Services;
+    using AngeronaSignum.WebApi.Models;
 
     public class EntityController : ApiController
     {
@@ -25,10 +27,10 @@
         [HttpGet]
         public Entity Index(int id)
         {
-            var entity = new Entity;
+            var entity = new Entity();
             using (var connection = DatabaseService.GetOpenConnection())
             {
-                entity = connection.Query<Entity>("select * from entity where id = @id", new { id = id });
+                entity = connection.Query<Entity>("select * from entity where id = @id", new { id = id }).FirstOrDefault();
             }
 
             return entity;

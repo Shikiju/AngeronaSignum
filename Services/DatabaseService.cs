@@ -1,4 +1,4 @@
-﻿namespace AngeronaSignum
+﻿namespace AngeronaSignum.Services
 {
     using MySql.Data.MySqlClient;
     using System;
@@ -10,7 +10,7 @@
 
     public static class DatabaseService
     {
-        public static readonly string connectionString = "Server=localhost;Database=angeronasignum.database.mysql;Uid=root;Pwd=lkk3v%99;";
+        public static readonly string connectionString = "Server=localhost;Database=angeronasignum.database.mysql;Uid=Angerona;Pwd=Angerona;";
 
         public static MySqlConnection GetOpenConnection()
         {

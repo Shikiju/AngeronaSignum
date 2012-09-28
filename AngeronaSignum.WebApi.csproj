@@ -120,7 +120,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\EntityController.cs" />
-    <Compile Include="DatabaseService.cs" />
+    <Compile Include="Services\DatabaseService.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
