@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Web
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngeronaSignum.WebApi", "AngeronaSignum\AngeronaSignum.WebApi.csproj", "{62FCA457-83AF-414B-854D-C67512591BC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngeronaSignumJavascriptClient", "..\AngeronaSignumJavascriptClient\AngeronaSignumJavascriptClient\AngeronaSignumJavascriptClient.csproj", "{18826456-00C0-4C7A-ACE6-98D36C1B2262}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62FCA457-83AF-414B-854D-C67512591BC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62FCA457-83AF-414B-854D-C67512591BC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62FCA457-83AF-414B-854D-C67512591BC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62FCA457-83AF-414B-854D-C67512591BC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18826456-00C0-4C7A-ACE6-98D36C1B2262}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18826456-00C0-4C7A-ACE6-98D36C1B2262}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18826456-00C0-4C7A-ACE6-98D36C1B2262}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18826456-00C0-4C7A-ACE6-98D36C1B2262}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
