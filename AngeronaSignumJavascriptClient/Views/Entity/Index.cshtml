@@ -15,19 +15,10 @@
     <label for="mail">Email <span>(required)</span></label><a name="add"></a>
     {{view App.MyEmailField name="Email" id="Email" valueBinding="entity.email" }} 
 
-    <label for="phone">Telephone - it's a disabled input</label>
-    <input tabindex="1000" type="text" name="phone" id="phone" disabled="disabled" value="hoi">
+    <label for="phone">Password</label>
+    <input tabindex="1000" type="text" name="phone" id="phone" disabled="disabled" valueBinding="entity.password">
 
-    <label for="message">Message</label>
-    <textarea tabindex="4" cols="30" rows="10" name="message" id="message"></textarea>
-
-    <label for="chkbox">Checkboxes</label>
-    <input tabindex="5" type="checkbox" name="chkbox" id="chkbox">
-
-    <label for="radios">Radios</label>
-    <input tabindex="6" type="radio" name="radios" id="radios">
-
-    <button tabindex="5" type="submit" name="submit" id="send">send</button>
+    <button tabindex="5" type="submit" name="submit" id="send">Save</button>
 
     </form>
 

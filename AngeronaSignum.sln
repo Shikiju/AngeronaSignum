@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2012 for Web
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngeronaSignum.WebApi", "AngeronaSignum\AngeronaSignum.WebApi.csproj", "{62FCA457-83AF-414B-854D-C67512591BC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngeronaSignumJavascriptClient", "..\AngeronaSignumJavascriptClient\AngeronaSignumJavascriptClient\AngeronaSignumJavascriptClient.csproj", "{18826456-00C0-4C7A-ACE6-98D36C1B2262}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngeronaSignumJavascriptClient", "AngeronaSignumJavascriptClient\AngeronaSignumJavascriptClient.csproj", "{18826456-00C0-4C7A-ACE6-98D36C1B2262}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
