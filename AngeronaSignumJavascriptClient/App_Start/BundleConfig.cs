@@ -12,6 +12,9 @@ namespace AngeronaSignumJavascriptClient
                         "~/Scripts/handlebars-1.0.0.beta.6.js",
                         "~/Scripts/ember-1.0.pre.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/cryptjs").Include(
+            "~/Scripts/cryptjsaes.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 

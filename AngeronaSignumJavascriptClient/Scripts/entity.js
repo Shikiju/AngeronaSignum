@@ -33,7 +33,10 @@ view.entity.addObserver('name', function (a, b, c) {
   console.log(this.name);
   console.log(view.entity.get('name'));
   console.log(view.entity.get('email'));
-  console.log(view.entity.get('password'));
+  var encrypted = CryptoJS.AES.encrypt(view.entity.get('password'), "TEMPHASH")
+  console.log(encrypted.toString());
+  var decrypted = CryptoJS.AES.decrypt(encrypted, "TEMPHASH");
+  console.log(decrypted.toString(CryptoJS.enc.Utf8));
 })
 
 App.MyNameField = Ember.TextField.extend({
