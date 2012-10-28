@@ -23,20 +23,20 @@ legend span                         {font-size:100%;font-weight:bold;color:#fff;
 
 
 
-form#contact 						{font-family:arial;font-size:100%;color:#666;}
-form#contact label 					{float:left;display:block;margin:3px 0;clear:both;}
-form#contact input 					{color:#666;margin:0 0 7px 0;border:1px solid #d8d8d8;width:220px;float:left;-moz-border-radius:9px;-webkit-border-radius:9px;background: url('gradient_white.png') repeat-x top left #efefef;padding:3px 10px;}
+form 						{font-family:arial;font-size:100%;color:#666;}
+form label 					{float:left;display:block;margin:3px 0;clear:both;}
+form input 					{color:#666;margin:0 0 7px 0;border:1px solid #d8d8d8;width:220px;float:left;-moz-border-radius:9px;-webkit-border-radius:9px;background: url('gradient_white.png') repeat-x top left #efefef;padding:3px 10px;}
 
-form#contact select 				{color:#666;margin:0 0 7px 0;border:1px solid #d8d8d8;width:240px;float:left;-moz-border-radius:9px;-webkit-border-radius:9px;background: url('gradient_white.png') repeat-x top left #efefef;padding:3px 5px 3px 10px;}
-form#contact option			        {display:block;color:#666;}
+form select 				{color:#666;margin:0 0 7px 0;border:1px solid #d8d8d8;width:240px;float:left;-moz-border-radius:9px;-webkit-border-radius:9px;background: url('gradient_white.png') repeat-x top left #efefef;padding:3px 5px 3px 10px;}
+form option			        {display:block;color:#666;}
 
-form#contact input[type="checkbox"] {background:none;border:0px;width:14px;height:14px;margin:5px 15px;padding:0px;}
-form#contact input[type="radio"]    {background:none;border:0px;width:14px;height:14px;margin:5px 15px;padding:0px;}
+form input[type="checkbox"] {background:none;border:0px;width:14px;height:14px;margin:5px 15px;padding:0px;}
+form input[type="radio"]    {background:none;border:0px;width:14px;height:14px;margin:5px 15px;padding:0px;}
 
 
 input[type="text"]:disabled         {opacity: .5;border:1px solid #eee !important;filter: alpha(opacity=50);}
 
-form#contact textarea 				{color:#666;font-size:110%;font-family:arial;height:80px;border:1px solid #d8d8d8;width:220px;-moz-border-radius:12px;-webkit-border-radius:12px;background: url('gradient_white.png') repeat-x top left #efefef;padding:2px 10px;margin-bottom:10px;}
+form textarea 				{color:#666;font-size:110%;font-family:arial;height:80px;border:1px solid #d8d8d8;width:220px;-moz-border-radius:12px;-webkit-border-radius:12px;background: url('gradient_white.png') repeat-x top left #efefef;padding:2px 10px;margin-bottom:10px;}
 #send				                {background: url('gradient_black.png') repeat-x top left #a80329;-moz-border-radius:15px;-webkit-border-radius:15px;-moz-box-shadow: 5px 5px 8px #999;-webkit-box-shadow: 5px 5px 8px #999;border:0;cursor:pointer;color:#fff;margin-top:15px;float:right;font-weight:bold;font-size:110%;padding:5px 15px;}
 .faulty_field						{background:#fff4f4 !important;color:#ff0000;border:1px solid #ff0000 !important;}
 label span                          {color:#ff0000;font-size:85%;}

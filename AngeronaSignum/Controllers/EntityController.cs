@@ -47,5 +47,11 @@
 
             return entity;
         }
+
+        [HttpOptions]
+        public Entity Options(Entity entity)
+        {
+            return null;
+        }
     }
 }
