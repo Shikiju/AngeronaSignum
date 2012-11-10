@@ -9,7 +9,9 @@
     using Dapper;
     using AngeronaSignum.Services;
     using AngeronaSignum.WebApi.Models;
+    using AngeronaSignum.Filters;
 
+    [AuthenticationFilter]
     public class EntityController : ApiController
     {
         [HttpGet]

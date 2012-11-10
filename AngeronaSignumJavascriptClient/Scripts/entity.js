@@ -15,6 +15,10 @@ Person = Ember.Object.extend({
   },
   save: function () {
     $.ajax({
+      headers: {
+        'AngeronaSignum-Email': 'koenvbaast25@gmail.com',
+        'AngeronaSignum-Password': 'koen25'
+      },
       type: 'POST',
       contentType: 'application/json',
       dataType: "json",
