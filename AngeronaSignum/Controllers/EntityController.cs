@@ -10,9 +10,10 @@
     using AngeronaSignum.Services;
     using AngeronaSignum.WebApi.Models;
     using AngeronaSignum.Filters;
+    using AngeronaSignum.Controllers;
 
     [AuthenticationFilter]
-    public class EntityController : ApiController
+    public class EntityController : BaseController
     {
         [HttpGet]
         public IEnumerable<Entity> Index()
@@ -42,9 +43,11 @@
         [HttpPost]
         public Entity Post(Entity entity)
         {
+            var usar = this.User;
+
             using (var connection = DatabaseService.GetOpenConnection())
             {
-                connection.Query<Entity>("INSERT INTO entity (name, email, password) VALUES (@name, @email,@password)", entity);
+                connection.Execute("INSERT INTO entity (name, email, password) VALUES (@name, @email,@password)", entity);
             }
 
             return entity;

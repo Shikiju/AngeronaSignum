@@ -1,12 +1,33 @@
 var App = Em.Application.create({
-  //rootElement: '#mainEntity'
 });
 
-var textArea = Ember.TextArea.create({
-  valueBinding: 'Person.fullname'
+App.User = Ember.Object.extend({
+  email: 'koenvbaast25@gmail.com',
+  hashedEmail: function() {
+    return CryptoJS.AES.encrypt(this.get('email'), "TEMPHASH");
+  },
+  password: '',
+  hashedPassword: function () {
+    return CryptoJS.AES.encrypt(this.get('password'), "TEMPHASH");
+  },
+  login: function () {
+    $.ajax({
+      headers: {
+        'AngeronaSignum-Email': this.get('email'),
+        'AngeronaSignum-Password': this.get('password')
+      },
+      type: 'POST',
+      contentType: 'application/json',
+      dataType: "json",
+      url: "http://localhost:49708/api/authentication",
+      success: function (data) {
+        $('#entity').show(500);
+      }
+    });
+  }
 });
 
-Person = Ember.Object.extend({
+App.Entity = Ember.Object.extend({
   name: 'Koen',
   email: 'koenvbaast25@gmail.com',
   password: 'koen25',
@@ -16,8 +37,8 @@ Person = Ember.Object.extend({
   save: function () {
     $.ajax({
       headers: {
-        'AngeronaSignum-Email': 'koenvbaast25@gmail.com',
-        'AngeronaSignum-Password': 'koen25'
+        'AngeronaSignum-Email': this.get('email'),
+        'AngeronaSignum-Password': this.get('password')
       },
       type: 'POST',
       contentType: 'application/json',
@@ -34,21 +55,38 @@ Person = Ember.Object.extend({
 
 var view = Ember.View.create({
   templateName: 'mainEntity',
-  entity: Person.create()
+  entity: App.Entity.create(),
+  user: App.User.create()
 });
 
 view.entity.addObserver('name', function (a, b, c) {
-  console.log(view.entity.get('name'));
-  console.log(view.entity.get('passwordHash')); 
-  var decrypted = view.entity.get('passwordHash');
-  console.log(JSON.stringify(view.entity.getProperties('name', 'email', 'passwordHash')));
   view.entity.save();
+});
+
+view.entity.addObserver('email', function (a, b, c) {
+  view.entity.save();
+});
+
+view.user.addObserver('email', function (a, b, c) {
+  console.log('email changed!');
+  view.user.login();
+})
+
+view.user.addObserver('password', function (a, b, c) {
+  console.log('password changed!');
+  view.user.login();
 })
 
 App.MyNameField = Ember.TextField.extend({
 });
 
 App.MyEmailField = Ember.TextField.extend({
+});
+
+App.LoginEmailField = Ember.TextField.extend({
+});
+
+App.LoginPasswordField = Ember.TextField.extend({
 });
 
 view.appendTo('#mainEntity');

@@ -1,5 +1,6 @@
 ﻿namespace AngeronaSignum.Controllers
 {
+    using AngeronaSignum.Filters;
     using AngeronaSignum.Models;
     using System;
     using System.Collections.Generic;
@@ -8,16 +9,15 @@
     using System.Web.Http;
     using System.Web.Mvc;
 
-    public class AuthenticationController : ApiController
+    [AuthenticationFilter]
+    public class AuthenticationController : BaseController
     {
         //
         // GET: /Authentication/
 
-        public User Index()
+        public bool Index()
         {
-            var user = new User();
-            return user;
+            return this.User != null;
         }
-
     }
 }

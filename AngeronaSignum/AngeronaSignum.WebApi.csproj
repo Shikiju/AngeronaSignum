@@ -120,6 +120,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\EntityController.cs" />
     <Compile Include="Filters\AuthenticationFilter.cs" />
     <Compile Include="Models\User.cs" />

@@ -2,15 +2,16 @@
 {
     using AngeronaSignum.Models;
     using AngeronaSignum.Services;
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Net.Http;
-    using System.Web;
     using System.Web.Http.Controllers;
     using System.Web.Http.Filters;
 
     using Dapper;
+    using System.Net;
+    using System.Web.Http;
+    using AngeronaSignum.Controllers;
 
     public class AuthenticationFilter : ActionFilterAttribute 
     {
@@ -31,13 +32,20 @@
             User user;
             using (var connection = DatabaseService.GetOpenConnection())
             {
-                user = connection.Query<User>("select * from User where email = @hashedEmail and password ", new { 
+                user = connection.Query<User>("select * from users where hashedEmail = @hashedEmail and hashedPassword = @hashedPassword", new { 
                     hashedEmail = hashedEmail.FirstOrDefault(),
                     hashedPassword = hashedPassword.FirstOrDefault()
                 }).FirstOrDefault();
             }
 
-            base.OnActionExecuting(filterContext);
+            if (user == null)
+            {
+                throw new HttpResponseException(HttpStatusCode.Forbidden);
+            }
+
+            ((BaseController)filterContext.ControllerContext.Controller).User = user;
+
+            base.OnActionExecuting(filterContext); 
         }
     }
 }

@@ -9,22 +9,22 @@
 
     <form action="" method="post" name="loginform" id="login">
     <label for="mail">Email<span> (required)</span></label><a name="add"></a>
-    {{view App.MyEmailField name="Email" id="loginEmail"}} 
+    {{view App.LoginEmailField name="loginEmail" id="loginEmail" valueBinding="user.email"}} 
     <label for="phone">Password<span> (required)</span></label>
-    <input tabindex="1000" type="text" name="loginPassword" id="loginPassword">
+    {{view App.LoginPasswordField name="loginPassword" id="loginPassword" valueBinding="user.password"}} 
     <button tabindex="5" type="submit" name="submit" id="send">Save</button>
     </form>
 
     </fieldset>
     <!--
-    <fieldset style="float:left;display:none">
+    <fieldset style="float:left">
     -->
     <fieldset style="float:left">
     <legend>
         <span>AngeronaSignum</span>
     </legend>
 
-    <form action="" method="post" name="entityform" id="entity">
+    <form action="" method="post" name="entityform" id="entity" style="display:none">
     <label for="name">Name <span>(required)</span></label><a name="name"></a>
     {{view App.MyNameField name="Name" id="Name" valueBinding="entity.name"}} 
     <label for="mail">Email <span>(required)</span></label><a name="add"></a>
