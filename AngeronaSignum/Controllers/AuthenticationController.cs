@@ -15,6 +15,7 @@
         //
         // GET: /Authentication/
 
+        [HttpGet]
         public bool Index()
         {
             return this.User != null;

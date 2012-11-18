@@ -2,12 +2,12 @@
     ViewBag.Title = "Index";
 }
 <script type="text/x-handlebars" data-template-name="mainEntity">
-    <fieldset style="float:left">
+    <fieldset style="float:left" id="login">
     <legend>
         <span>Login</span>
     </legend>
 
-    <form action="" method="post" name="loginform" id="login">
+    <form action="" method="post" name="loginform" >
     <label for="mail">Email<span> (required)</span></label><a name="add"></a>
     {{view App.LoginEmailField name="loginEmail" id="loginEmail" valueBinding="user.email"}} 
     <label for="phone">Password<span> (required)</span></label>
@@ -35,8 +35,18 @@
     </form>
 
     </fieldset>
+    <fieldset style="float:left">
+    <legend>
+        <span>Entities</span>
+    </legend>
+
+    {{#each App.view.entities }}
+      <li class="entity">{{name}}</li>
+    {{/each}}
+    </fieldset>
     
 </script>
 <script src="~/Scripts/entity.js"></script>
 <div id="mainEntity">
 </div>
+ 

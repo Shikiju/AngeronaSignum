@@ -21,7 +21,7 @@
             var entities = Enumerable.Empty<Entity>();
             using (var connection = DatabaseService.GetOpenConnection())
             {
-                entities = connection.Query<Entity>("select * from entity");
+                entities = connection.Query<Entity>("SELECT * FROM entity WHERE userid = @userid", new { userid = User.id } );
             }
             
             return entities;
@@ -33,7 +33,7 @@
             var entity = new Entity();
             using (var connection = DatabaseService.GetOpenConnection())
             {
-                entity = connection.Query<Entity>("select * from entity where id = @id", new { id = id }).FirstOrDefault();
+                entity = connection.Query<Entity>("SELECT * FROM entity WHERE id = @id", new { id = id }).FirstOrDefault();
             }
 
             return entity;

@@ -6,7 +6,7 @@ App.User = Ember.Object.extend({
   hashedEmail: function() {
     return CryptoJS.AES.encrypt(this.get('email'), "TEMPHASH");
   },
-  password: '',
+  password: 'koen2',
   hashedPassword: function () {
     return CryptoJS.AES.encrypt(this.get('password'), "TEMPHASH");
   },
@@ -16,12 +16,27 @@ App.User = Ember.Object.extend({
         'AngeronaSignum-Email': this.get('email'),
         'AngeronaSignum-Password': this.get('password')
       },
-      type: 'POST',
+      type: 'GET',
       contentType: 'application/json',
       dataType: "json",
       url: "http://localhost:49708/api/authentication",
       success: function (data) {
         $('#entity').show(500);
+        $('#login').hide(500);
+        $.ajax({
+          headers: {
+            'AngeronaSignum-Email': App.view.user.get('email'),
+            'AngeronaSignum-Password': App.view.user.get('password')
+          },
+          type: 'GET',
+          contentType: 'application/json',
+          dataType: "json",
+          url: "http://localhost:49708/api/entity",
+          success: function (data) {
+            console.log(data);
+            App.view.set('entities', data);
+          }
+        });
       }
     });
   }
@@ -53,28 +68,27 @@ App.Entity = Ember.Object.extend({
   }
 });
 
-var view = Ember.View.create({
+App.view = Ember.View.create({
   templateName: 'mainEntity',
+  entities: [],
   entity: App.Entity.create(),
   user: App.User.create()
 });
 
-view.entity.addObserver('name', function (a, b, c) {
-  view.entity.save();
+App.view.entity.addObserver('name', function (a, b, c) {
+  App.view.entity.save();
 });
 
-view.entity.addObserver('email', function (a, b, c) {
-  view.entity.save();
+App.view.entity.addObserver('email', function (a, b, c) {
+  App.view.entity.save();
 });
 
-view.user.addObserver('email', function (a, b, c) {
-  console.log('email changed!');
-  view.user.login();
+App.view.user.addObserver('email', function (a, b, c) {
+  App.view.user.login();
 })
 
-view.user.addObserver('password', function (a, b, c) {
-  console.log('password changed!');
-  view.user.login();
+App.view.user.addObserver('password', function (a, b, c) {
+  App.view.user.login();
 })
 
 App.MyNameField = Ember.TextField.extend({
@@ -89,6 +103,6 @@ App.LoginEmailField = Ember.TextField.extend({
 App.LoginPasswordField = Ember.TextField.extend({
 });
 
-view.appendTo('#mainEntity');
+App.view.appendTo('#mainEntity');
 
 
