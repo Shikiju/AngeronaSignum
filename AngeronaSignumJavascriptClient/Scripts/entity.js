@@ -35,6 +35,10 @@ App.User = Ember.Object.extend({
           success: function (data) {
             console.log(data);
             App.view.set('entities', data);
+            $('#selectable').show();
+            $('#loginout').show();
+            //console.log(App.view.get("entities"));
+            console.log(App.view.get("entity"));
           }
         });
       }
@@ -43,17 +47,17 @@ App.User = Ember.Object.extend({
 });
 
 App.Entity = Ember.Object.extend({
-  name: 'Koen',
-  email: 'koenvbaast25@gmail.com',
-  password: 'koen25',
+  name: '',
+  login: '',
+  password: '',
   passwordHash: function() {
     return CryptoJS.AES.encrypt(this.get('password'), "TEMPHASH");
   },
   save: function () {
     $.ajax({
       headers: {
-        'AngeronaSignum-Email': this.get('email'),
-        'AngeronaSignum-Password': this.get('password')
+        'AngeronaSignum-Email': App.view.user.get('email'),
+        'AngeronaSignum-Password': App.view.user.get('password')
       },
       type: 'POST',
       contentType: 'application/json',
@@ -91,10 +95,10 @@ App.view.user.addObserver('password', function (a, b, c) {
   App.view.user.login();
 })
 
-App.MyNameField = Ember.TextField.extend({
+App.EntityNameField = Ember.TextField.extend({
 });
 
-App.MyEmailField = Ember.TextField.extend({
+App.EntityLoginField = Ember.TextField.extend({
 });
 
 App.LoginEmailField = Ember.TextField.extend({
