@@ -33,12 +33,15 @@ App.User = Ember.Object.extend({
           dataType: "json",
           url: "http://localhost:49708/api/entity",
           success: function (data) {
-            console.log(data);
             App.view.set('entities', data);
             $('#selectable').show();
             $('#loginout').show();
-            //console.log(App.view.get("entities"));
-            console.log(App.view.get("entity"));
+            $('#loginout').on('click', function () {
+              App.view.set('entity', App.Entity.create());
+              App.view.set('entities',[]);
+              $('#loginout').hide(500);
+              $('#login').show(500);
+            });
           }
         });
       }
@@ -87,6 +90,10 @@ App.view.entity.addObserver('email', function (a, b, c) {
   App.view.entity.save();
 });
 
+App.view.entity.addObserver('password', function (a, b, c) {
+  App.view.entity.save();
+});
+
 App.view.user.addObserver('email', function (a, b, c) {
   App.view.user.login();
 })
@@ -101,6 +108,9 @@ App.EntityNameField = Ember.TextField.extend({
 App.EntityLoginField = Ember.TextField.extend({
 });
 
+App.EntityPasswordField = Ember.TextField.extend({
+});
+
 App.LoginEmailField = Ember.TextField.extend({
 });
 
@@ -108,5 +118,3 @@ App.LoginPasswordField = Ember.TextField.extend({
 });
 
 App.view.appendTo('#mainEntity');
-
-

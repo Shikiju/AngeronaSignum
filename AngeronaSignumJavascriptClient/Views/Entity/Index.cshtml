@@ -63,8 +63,10 @@
                                 id="Login" 
                                 valueBinding="App.view.entity.login" }} 
         <label for="phone">Password</label>
-        <input tabindex="1000" type="text" name="phone" id="phone" disabled="disabled" valueBinding="entity.password">
-        <button tabindex="5" class="button" type="submit" name="submit" id="send">Save</button>
+        {{view App.EntityPasswordField name="Password" 
+                                id="Password" 
+                                valueBinding="App.view.entity.password" }} 
+        <!--<button tabindex="5" class="button" type="submit" name="submit" id="send">Save</button>-->
     </form>
 
     </fieldset>
