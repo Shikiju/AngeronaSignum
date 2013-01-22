@@ -47,7 +47,7 @@
 
             using (var connection = DatabaseService.GetOpenConnection())
             {
-                connection.Execute("INSERT INTO entity (name, email, password) VALUES (@name, @email,@password)", entity);
+                connection.Execute("INSERT INTO entity (name, login, password) VALUES (@name, @login,@password)", entity);
             }
 
             return entity;

@@ -132,9 +132,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="default.html" />
+    <Content Include="Content\Site.css" />
+    <Content Include="default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\cryptjsaes.js" />
+    <Content Include="Scripts\ember-1.0.pre.js" />
+    <Content Include="Scripts\ember-1.0.pre.min.js" />
+    <Content Include="Scripts\entity.js" />
+    <Content Include="Scripts\handlebars-1.0.0.beta.6.js" />
+    <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -150,6 +158,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AngeronaSignumClient\AngeronaSignumClient.csproj">
+      <Project>{f5726b5a-dbfa-478d-bd10-85a17b48be0d}</Project>
+      <Name>AngeronaSignumClient</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

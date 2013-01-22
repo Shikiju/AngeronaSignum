@@ -19,7 +19,7 @@ App.User = Ember.Object.extend({
       type: 'GET',
       contentType: 'application/json',
       dataType: "json",
-      url: "http://localhost:49708/api/authentication",
+      url: "http://localhost:49708/api/authentication/index",
       success: function (data) {
         $('#entity').show(500);
         $('#login').hide(500);
@@ -33,7 +33,11 @@ App.User = Ember.Object.extend({
           dataType: "json",
           url: "http://localhost:49708/api/entity",
           success: function (data) {
-            App.view.set('entities', data);
+            var array = [];
+            $.each(data, function (index, item) {
+              array.push(App.Entity.create(item));
+            });
+            App.view.set('entities', array);
             $('#selectable').show();
             $('#loginout').show();
             $('#loginout').on('click', function () {
@@ -66,13 +70,22 @@ App.Entity = Ember.Object.extend({
       contentType: 'application/json',
       dataType: "json",
       url: "http://localhost:49708/api/entity",
-      data: JSON.stringify(this.getProperties('name', 'email', 'passwordHash')),
+      data: JSON.stringify(this.getProperties('name', 'login', 'passwordHash')),
       success: function (data) {
         // your data should already be rendered with latest changes
         // however, you might want to change status from something to "saved" etc.
       }
     });
-  }
+  },
+  nameChanged: function () {
+    App.view.entity.save();
+  }.observes('name'),
+  emailChanged: function () {
+    App.view.entity.save();
+  }.observes('login'),
+  passwordChanged: function () {
+    App.view.entity.save();
+  }.observes('password')
 });
 
 App.view = Ember.View.create({
@@ -80,18 +93,6 @@ App.view = Ember.View.create({
   entities: [],
   entity: App.Entity.create(),
   user: App.User.create()
-});
-
-App.view.entity.addObserver('name', function (a, b, c) {
-  App.view.entity.save();
-});
-
-App.view.entity.addObserver('email', function (a, b, c) {
-  App.view.entity.save();
-});
-
-App.view.entity.addObserver('password', function (a, b, c) {
-  App.view.entity.save();
 });
 
 App.view.user.addObserver('email', function (a, b, c) {

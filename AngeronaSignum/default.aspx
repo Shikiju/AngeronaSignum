@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>AngeronaSignum</title>
+    <link rel="stylesheet" type="text/css" href="Content/Site.css" />
+    <script src="Scripts/jquery-1.7.1.js"></script>
+    <script src="Scripts/handlebars-1.0.0.beta.6.js"></script>
+    <script src="Scripts/ember-1.0.pre.js"></script>
+    <script src="Scripts/cryptjsaes.js"></script>
+    <style>
+    #feedback { font-size: 1.4em; }
+    #selectable .ui-selecting { background: #FECA40; }
+    #selectable .ui-selected { background: #F39814; color: white; }
+    #selectable { list-style-type: none; margin: 0; padding: 0; width: 100%; }
+    #selectable li { margin: 3px; padding: 0.4em; font-size: 1.4em; height: 18px; border-radius: 5px; }
+    </style>
+    <script type="text/x-handlebars" data-template-name="mainEntity">
+        <fieldset style="float:left">
+        <legend>
+            <span>Login</span>
+        </legend>
+
+        <form action="" method="post" name="loginform" id="login">
+            <label for="mail">Email<span> (required)</span></label><a name="add"></a>
+            {{view App.LoginEmailField name="loginEmail" 
+                                       id="loginEmail" 
+                                       valueBinding="user.email" }} 
+            <label for="phone">Password<span> (required)</span></label>
+            {{view App.LoginPasswordField name="loginPassword" 
+                                          id="loginPassword" 
+                                          valueBinding="user.password"}} 
+        </form>
+        <button tabindex="5" class="button" type="submit" name="submit" id="loginout" style="display:none">Logout</button>
+
+        </fieldset>
+
+        <fieldset style="float:left">
+        <legend>
+            <span>Entities</span>
+        </legend>
+
+        {{view Ember.Select contentBinding="App.view.entities"
+                            optionLabelPath="content.name"
+                            prompt="Pick a entity:"
+                            selectionBinding="App.view.entity" }}
+
+        <ol id="selectable" style="display:none">
+        {{#each App.view.entities }}
+          <li class="ui-widget-content">{{name}}</li>
+        {{/each}}
+        </ol>
+        </fieldset>
+
+        <!--
+        <fieldset style="float:left">
+        -->
+        <fieldset style="float:left">
+        <legend>
+            <span>AngeronaSignum</span>
+        </legend>
+
+        <form action="" method="post" name="entityform" id="entity" style="display:none">
+            <label for="Name">Name <span>(required)</span></label><a name="name"></a>
+            {{view App.EntityNameField name="Name" 
+                                   id="Name" 
+                                   valueBinding="App.view.entity.name" }} 
+            <label for="login">Login <span>(required)</span></label><a name="login"></a>
+            {{view App.EntityLoginField name="Login" 
+                                    id="Login" 
+                                    valueBinding="App.view.entity.login" }} 
+            <label for="phone">Password</label>
+            {{view App.EntityPasswordField name="Password" 
+                                    id="Password" 
+                                    valueBinding="App.view.entity.password" }} 
+            <!--<button tabindex="5" class="button" type="submit" name="submit" id="send">Save</button>-->
+        </form>
+
+        </fieldset>
+    
+    </script>
+    <script src="/Scripts/entity.js"></script>
+</head>
+<body>
+    <div id="mainEntity">
+    </div>
+</body>
+</html>
+
+ 
