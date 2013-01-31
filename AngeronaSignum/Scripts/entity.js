@@ -95,6 +95,15 @@ App.view = Ember.View.create({
   user: App.User.create()
 });
 
+App.EntityListItem = Ember.View.extend({
+  tagName: "li",
+  templateName: "entity-listItem-view",
+  click: function(e){
+    // handle the view click here
+    App.view.set('entity', this.get('context'));
+  }
+});
+
 App.view.user.addObserver('email', function (a, b, c) {
   App.view.user.login();
 })

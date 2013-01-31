@@ -9,10 +9,7 @@
     <script src="Scripts/cryptjsaes.js"></script>
     <style>
     #feedback { font-size: 1.4em; }
-    #selectable .ui-selecting { background: #FECA40; }
-    #selectable .ui-selected { background: #F39814; color: white; }
-    #selectable { list-style-type: none; margin: 0; padding: 0; width: 100%; }
-    #selectable li { margin: 3px; padding: 0.4em; font-size: 1.4em; height: 18px; border-radius: 5px; }
+
     </style>
     <script type="text/x-handlebars" data-template-name="mainEntity">
         <fieldset style="float:left">
@@ -39,16 +36,20 @@
             <span>Entities</span>
         </legend>
 
-        {{view Ember.Select contentBinding="App.view.entities"
+       <%-- {{view Ember.Select contentBinding="App.view.entities"
                             optionLabelPath="content.name"
                             prompt="Pick a entity:"
-                            selectionBinding="App.view.entity" }}
+                            selectionBinding="" }}--%>
 
-        <ol id="selectable" style="display:none">
-        {{#each App.view.entities }}
-          <li class="ui-widget-content">{{name}}</li>
+
+        
+        
+        <ul class="rounded-list">
+        {{#each App.view.entities contentBinding="App.view.entity"}}
+            {{view App.EntityListItem contentBinding="App.view.entity"}}
         {{/each}}
-        </ol>
+        </ul>
+
         </fieldset>
 
         <!--
@@ -78,6 +79,10 @@
         </fieldset>
     
     </script>
+    <script data-template-name="entity-listItem-view" type="text/x-handlebars">
+      <a><span class="name">{{name}}</span></a>
+    </script>
+
     <script src="/Scripts/entity.js"></script>
 </head>
 <body>
