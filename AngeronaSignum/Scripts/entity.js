@@ -48,6 +48,9 @@ App.User = Ember.Object.extend({
             });
           }
         });
+      },
+      error: function (error) {
+        App.view.set('messages', error.responseText);
       }
     });
   }
@@ -92,6 +95,7 @@ App.view = Ember.View.create({
   templateName: 'mainEntity',
   entities: [],
   entity: App.Entity.create(),
+  messages: 'Messages will appear here',
   user: App.User.create()
 });
 
@@ -125,6 +129,9 @@ App.LoginEmailField = Ember.TextField.extend({
 });
 
 App.LoginPasswordField = Ember.TextField.extend({
+});
+
+App.Messages = Ember.TextArea.extend({
 });
 
 App.view.appendTo('#mainEntity');
