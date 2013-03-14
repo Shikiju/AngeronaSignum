@@ -51,18 +51,20 @@
         <form action="" method="post" name="entityform" id="entity" style="display:none">
             <label for="Name">Name <span>(required)</span></label><a name="name"></a>
             {{view App.EntityNameField name="Name" 
-                                   id="Name" 
-                                   valueBinding="App.view.entity.name" }} 
+                id="Name" 
+                valueBinding="App.view.entity.name" }} 
             <label for="login">Login <span>(required)</span></label><a name="login"></a>
             {{view App.EntityLoginField name="Login" 
-                                    id="Login" 
-                                    valueBinding="App.view.entity.login" }} 
+                id="Login" 
+                valueBinding="App.view.entity.login" }} 
             <label for="phone">Password</label>
             {{view App.EntityPasswordField name="Password" 
-                                    id="Password" 
-                                    valueBinding="App.view.entity.password" }} 
+                id="Password" 
+                valueBinding="App.view.entity.password" }} 
             <!--<button tabindex="5" class="button" type="submit" name="submit" id="send">Save</button>-->
         </form>
+        <button tabindex="5" class="button" type="submit" name="submit" id="deleteEntity" style="display:none">Delete Entity</button>
+        <button tabindex="5" class="button" type="submit" name="submit" id="newEntity" style="display:none">New Entity</button>
         </fieldset>
 
         <fieldset style="float:left">

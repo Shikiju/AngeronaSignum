@@ -7,8 +7,8 @@
 
     public class User
     {
-        public int id { get; set; }
-        public string hashedEmail { get; set; }
-        public string hashedPassword { get; set; }
+        public int Id { get; set; }
+        public string HashedEmail { get; set; }
+        public string HashedVeriificationPassword { get; set; }
     }
 }

@@ -9,9 +9,9 @@
     using System.Linq;
     using System.Web;
 
-    public static class DatabaseService
+    public class DatabaseService : IDatabaseService
     {
-        public static MySqlConnection GetOpenConnection()
+        public MySqlConnection GetOpenConnection()
         {
             var connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["AngeronaConnection"].ToString());
             connection.Open();
